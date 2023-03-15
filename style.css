@@ -9,6 +9,11 @@ h1 {
     margin-bottom: 30px;
 }
 
+.yellow-tile {
+    background-color: transparent;
+}
+
+
 #game-board {
     display: grid;
     grid-template-columns: repeat(4, 100px);
