@@ -1,23 +1,22 @@
-
-   document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
 
-   function createTiles() {
-    for (let i = 0; i < 15; i++) {
-        const tile = document.createElement('div');
-        tile.className = 'tile';
-        tile.addEventListener('click', handleTileClick);
-        tiles.push(tile);
-        gameBoard.appendChild(tile);
+    function createTiles() {
+        for (let i = 0; i < 15; i++) {
+            const tile = document.createElement('div');
+            tile.className = 'tile';
+            tile.addEventListener('click', handleTileClick);
+            tiles.push(tile);
+            gameBoard.appendChild(tile);
+        }
+        const yellowTile = document.createElement('div');
+        yellowTile.className = 'tile yellow-tile';
+        yellowTile.style.backgroundImage = "url('https://raw.githubusercontent.com/mcrombeen/15t/main/test1/oie_oie_canvas.png')"; // Replace this path with the path to your yellow tile image
+        yellowTile.style.backgroundSize = 'cover';
+        gameBoard.appendChild(yellowTile);
     }
-    const yellowTile = document.createElement('div');
-    yellowTile.className = 'tile yellow-tile';
-yellowTile.style.backgroundImage = "url('https://raw.githubusercontent.com/mcrombeen/15t/main/test1/oie_oie_canvas.png')"; // Replace this path with the path to your yellow tile image
-    yellowTile.style.backgroundSize = 'cover';
-    gameBoard.appendChild(yellowTile);
-}
 
     function handleTileClick(event) {
         const clickedTile = event.target;
@@ -76,16 +75,7 @@ yellowTile.style.backgroundImage = "url('https://raw.githubusercontent.com/mcrom
                 tiles[i].style.backgroundSize = `${tempImage.width}px ${tempImage.height}px`;
                 tiles[i].style.backgroundPosition = `-${positions[i].x}px -${positions[i].y}px`;
             }
-        };
-    }
 
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
+            const gameBoard
 
-    createTiles();
-    imagePicker.addEventListener('change', handleImageSelection);
-});
+   
