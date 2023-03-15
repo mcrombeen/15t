@@ -9,7 +9,7 @@ for (let i = 0; i < tiles.length; i++) {
 }
 
 // shuffle the tiles
-function shuffleTiles() {
+function shuffle() {
   let tiles = document.querySelectorAll(".tile");
   let tileArray = Array.from(tiles);
 
