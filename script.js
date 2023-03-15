@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function onMouseDown(event) {
         const draggedTile = event.target;
         const emptyTile = gameBoard.children[15];
+        const draggedTileOriginalPosition = draggedTile.getBoundingClientRect();
 
         function isTileAdjacent() {
             const emptyIndex = Array.prototype.indexOf.call(gameBoard.children, emptyTile);
@@ -37,11 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function onMouseUp() {
-            if (isTileAdjacent()) {
+            const emptyTilePosition = emptyTile.getBoundingClientRect();
+            const distance = Math.sqrt(Math.pow(emptyTilePosition.x - draggedTileOriginalPosition.x, 2) + Math.pow(emptyTilePosition.y - draggedTileOriginalPosition.y, 2));
+            
+            if (isTileAdjacent() && distance < draggedTile.offsetWidth * 1.5) {
                 gameBoard.insertBefore(draggedTile, emptyTile);
+            } else {
+                draggedTile.style.left = '';
+                draggedTile.style.top = '';
             }
-            draggedTile.style.left = '';
-            draggedTile.style.top = '';
 
             document.removeEventListener('mousemove', onMouseMove);
             document.removeEventListener('mouseup', onMouseUp);
