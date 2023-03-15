@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
+    let emptyIndex = 15;
 
     function createTiles() {
         for (let i = 0; i < 15; i++) {
@@ -23,11 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function onMouseDown(event) {
         const draggedTile = event.target;
-        const emptyTile = gameBoard.children[15];
+        const tileIndex = tiles.indexOf(draggedTile);
 
         function isTileAdjacent() {
-            const emptyIndex = Array.prototype.indexOf.call(gameBoard.children, emptyTile);
-            const tileIndex = Array.prototype.indexOf.call(gameBoard.children, draggedTile);
             return Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4;
         }
 
@@ -38,7 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function onMouseUp() {
             if (isTileAdjacent()) {
-                gameBoard.insertBefore(draggedTile, emptyTile);
+                gameBoard.insertBefore(draggedTile, gameBoard.children[emptyIndex]);
+                tiles[emptyIndex] = draggedTile;
+                tiles[tileIndex] = null;
+                emptyIndex = tileIndex;
             }
             draggedTile.style.left = '';
             draggedTile.style.top = '';
@@ -82,7 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Remove one of the positions for the empty space
-            positions.splice(Math.floor(Math.random() * positions.length), 1);
+            emptyIndex = Math.floor(Math.random() * positions.length);
+            positions.splice(emptyIndex, 1);
 
             shuffleArray(positions);
 
