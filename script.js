@@ -76,6 +76,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 tiles[i].style.backgroundPosition = `-${positions[i].x}px -${positions[i].y}px`;
             }
 
-            const gameBoard
+            const gameBoardBackground = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('${imageSrc}')`;
+            gameBoard.style.backgroundImage = gameBoardBackground;
+            gameBoard.style.backgroundSize = 'cover';
+        };
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    createTiles();
+    imagePicker.addEventListener('change', handleImageSelection);
+});
+
+           
+
 
    
