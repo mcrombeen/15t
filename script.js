@@ -23,24 +23,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startDragging(event) {
-        const draggedTile = event.target;
-        const emptyTile = gameBoard.children[15];
+    const draggedTile = event.target;
+    const emptyTile = gameBoard.children[15];
 
-        function moveTile() {
-            const emptyIndex = Array.prototype.indexOf.call(gameBoard.children, emptyTile);
-            const tileIndex = Array.prototype.indexOf.call(gameBoard.children, draggedTile);
+    function isTileAdjacent() {
+        const emptyIndex = Array.prototype.indexOf.call(gameBoard.children, emptyTile);
+        const tileIndex = Array.prototype.indexOf.call(gameBoard.children, draggedTile);
+        return Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4;
+    }
 
-            if (Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4) {
-                gameBoard.insertBefore(draggedTile, gameBoard.children[emptyIndex]);
-            }
-
-            document.removeEventListener('mousemove', moveTile);
-            document.removeEventListener('mouseup', moveTile);
+    function moveTile() {
+        if (isTileAdjacent()) {
+            gameBoard.insertBefore(draggedTile, gameBoard.children[Array.prototype.indexOf.call(gameBoard.children, emptyTile)]);
         }
+        document.removeEventListener('mousemove', moveTile);
+        document.removeEventListener('mouseup', moveTile);
+    }
 
+    if (isTileAdjacent()) {
         document.addEventListener('mousemove', moveTile);
         document.addEventListener('mouseup', moveTile);
     }
+}
+
 
     function handleImageSelection() {
         const file = imagePicker.files[0];
