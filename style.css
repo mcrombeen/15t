@@ -17,14 +17,9 @@ h1 {
 }
 
 .tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100px;
     height: 100px;
     background-color: cornflowerblue;
-    color: white;
-    font-size: 24px;
     cursor: pointer;
+    object-fit: none;
 }
-
