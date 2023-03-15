@@ -7,11 +7,6 @@ for (let i = 0; i < tiles.length; i++) {
     emptyTile = tiles[i];
   }
 }
-let port;
-
-chrome.runtime.onConnect.addListener(function(msgPort) {
-  port = msgPort;
-});
 
 // shuffle the tiles
 function shuffle() {
@@ -24,13 +19,7 @@ function shuffle() {
     tileArray[randomPos].style.order = tile.style.order;
     tile.style.order = temp;
   });
-
-  // Check if message port is still open before sending message
-  if (port && port.sender.tab) {
-    port.postMessage({ message: "shuffleTiles" });
-  }
 }
-
 
 // move a tile to the empty space
 function moveTile(tile) {
@@ -68,3 +57,4 @@ for (let i = 0; i < tiles.length; i++) {
     moveTile(this);
   });
 }
+
