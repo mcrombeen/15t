@@ -95,8 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createTiles();
-    imagePicker.addEventListener('change', handle handleImageSelection);
+    imagePicker.addEventListener('change', handleImageSelection);
 });
-
 
 
