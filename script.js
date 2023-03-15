@@ -1,10 +1,3 @@
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
@@ -32,25 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function onMouseMove(event) {
-            draggedTile.style.left = `${event.clientX - draggedTile.offsetWidth / 2}px`;
-            draggedTile.style.top = `${event.clientY - draggedTile.offsetHeight / 2}px`;
-        }
-
-        function onMouseUp() {
             if (isTileAdjacent()) {
                 gameBoard.insertBefore(draggedTile, gameBoard.children[Array.prototype.indexOf.call(gameBoard.children, emptyTile)]);
             }
-            draggedTile.style.left = '';
-            draggedTile.style.top = '';
+        }
 
+        function onMouseUp() {
             document.removeEventListener('mousemove', onMouseMove);
             document.removeEventListener('mouseup', onMouseUp);
         }
 
         if (isTileAdjacent()) {
-            draggedTile.style.position = 'absolute';
-            draggedTile.style.zIndex = '1000';
-
             document.addEventListener('mousemove', onMouseMove);
             document.addEventListener('mouseup', onMouseUp);
         }
@@ -97,5 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createTiles();
     imagePicker.addEventListener('change', handleImageSelection);
 });
+
 
 
