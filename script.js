@@ -14,7 +14,7 @@
     }
     const yellowTile = document.createElement('div');
     yellowTile.className = 'tile yellow-tile';
-    yellowTile.style.backgroundImage = "/Users/michaelcrombeen/Desktop/test1/oie_oie_canvas.png"; // Replace this path with the path to your yellow tile image
+    yellowTile.style.backgroundImage = "https://raw.githubusercontent.com/mcrombeen/test1/oie_oie_canvas.png"; // Replace this path with the path to your yellow tile image
     yellowTile.style.backgroundSize = 'cover';
     gameBoard.appendChild(yellowTile);
 }
