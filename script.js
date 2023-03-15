@@ -32,17 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function onMouseMove(event) {
-            if (isTileAdjacent()) {
-                gameBoard.insertBefore(draggedTile, gameBoard.children[Array.prototype.indexOf.call(gameBoard.children, emptyTile)]);
-            }
+            draggedTile.style.left = `${event.clientX - draggedTile.offsetWidth / 2}px`;
+            draggedTile.style.top = `${event.clientY - draggedTile.offsetHeight / 2}px`;
         }
 
         function onMouseUp() {
+            if (isTileAdjacent()) {
+                gameBoard.insertBefore(draggedTile, emptyTile);
+            }
+            draggedTile.style.left = '';
+            draggedTile.style.top = '';
+
             document.removeEventListener('mousemove', onMouseMove);
             document.removeEventListener('mouseup', onMouseUp);
         }
 
         if (isTileAdjacent()) {
+            draggedTile.style.position = 'absolute';
+            draggedTile.style.zIndex = '1000';
+
             document.addEventListener('mousemove', onMouseMove);
             document.addEventListener('mouseup', onMouseUp);
         }
