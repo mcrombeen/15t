@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 15; i++) {
             const tile = document.createElement('img');
             tile.className = 'tile';
-            tile.style.objectFit = 'none';
+            
             tile.style.objectPosition = '0 0';
             tile.addEventListener('click', moveTile);
             tiles.push(tile);
