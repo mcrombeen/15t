@@ -9,19 +9,23 @@ for (let i = 0; i < tiles.length; i++) {
 }
 
 // shuffle the tiles
-function shuffle() {
-  // remove the empty class from the empty tile
-  emptyTile.classList.remove('empty');
-  
-  // randomly move the tiles around the board
-  for (let i = 0; i < 1000; i++) {
-    const randomTile = tiles[Math.floor(Math.random() * tiles.length)];
-    moveTile(randomTile);
+function shuffleTiles() {
+  let tiles = document.querySelectorAll(".tile");
+  let tileArray = Array.from(tiles);
+
+  tileArray.forEach((tile) => {
+    let randomPos = Math.floor(Math.random() * 15);
+    let temp = tileArray[randomPos].style.order;
+    tileArray[randomPos].style.order = tile.style.order;
+    tile.style.order = temp;
+  });
+
+  // Check if message port is still open before sending message
+  if (port && port.sender.tab) {
+    port.postMessage({ message: "shuffleTiles" });
   }
-  
-  // add the empty class back to the empty tile
-  emptyTile.classList.add('empty');
 }
+
 
 // move a tile to the empty space
 function moveTile(tile) {
