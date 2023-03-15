@@ -1,41 +1,44 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+   document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
 
-    function createTiles() {
-        for (let i = 0; i < 15; i++) {
-            const tile = document.createElement('div');
-            tile.className = 'tile';
-            tile.addEventListener('click', onTileClick);
-            tiles.push(tile);
-            gameBoard.appendChild(tile);
-        }
+   function createTiles() {
+    for (let i = 0; i < 15; i++) {
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.addEventListener('click', handleTileClick);
+        tiles.push(tile);
+        gameBoard.appendChild(tile);
+    }
+    const yellowTile = document.createElement('div');
+    yellowTile.className = 'tile yellow-tile';
+    yellowTile.style.backgroundImage = "url('path/to/your/yellow-tile-image.png')"; // Replace this path with the path to your yellow tile image
+    yellowTile.style.backgroundSize = 'cover';
+    gameBoard.appendChild(yellowTile);
+}
 
-        const emptyTile = document.createElement('div');
-        emptyTile.className = 'tile empty';
-        emptyTile.style.backgroundColor = 'lightblue';
-        tiles.push(emptyTile);
-        gameBoard.appendChild(emptyTile);
+    function handleTileClick(event) {
+        const clickedTile = event.target;
+        const yellowTile = document.querySelector('.yellow-tile');
+        if (isAdjacent(clickedTile, yellowTile)) {
+            swapTiles(clickedTile, yellowTile);
+        }
     }
 
-    function onTileClick(event) {
-        const clickedTile = event.target;
-        if (clickedTile.classList.contains('empty')) {
-            return;
-        }
+    function isAdjacent(tile1, tile2) {
+        const index1 = Array.prototype.indexOf.call(gameBoard.children, tile1);
+        const index2 = Array.prototype.indexOf.call(gameBoard.children, tile2);
+        return Math.abs(index1 - index2) === 1 || Math.abs(index1 - index2) === 4;
+    }
 
-        const emptyTile = document.querySelector('.empty');
-        const clickedTileRect = clickedTile.getBoundingClientRect();
-        const emptyTileRect = emptyTile.getBoundingClientRect();
-        const isAdjacent = Math.abs(clickedTileRect.left - emptyTileRect.left) + Math.abs(clickedTileRect.top - emptyTileRect.top) === clickedTileRect.width || Math.abs(clickedTileRect.left - emptyTileRect.left) + Math.abs(clickedTileRect.top - emptyTileRect.top) === clickedTileRect.height;
-
-        if (isAdjacent) {
-            const tempStyle = clickedTile.getAttribute('style');
-            clickedTile.setAttribute('style', emptyTile.getAttribute('style'));
-            emptyTile.setAttribute('style', tempStyle);
-            emptyTile.style.backgroundColor = 'lightblue';
-        }
+    function swapTiles(tile1, tile2) {
+        const temp = document.createElement('div');
+        gameBoard.insertBefore(temp, tile1);
+        gameBoard.insertBefore(tile1, tile2);
+        gameBoard.insertBefore(tile2, temp);
+        gameBoard.removeChild(temp);
     }
 
     function handleImageSelection() {
@@ -63,7 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
+            // Remove one of the positions for the yellow space
             positions.splice(Math.floor(Math.random() * positions.length), 1);
+
+            shuffleArray(positions);
 
             for (let i = 0; i < 15; i++) {
                 tiles[i].style.backgroundImage = `url('${imageSrc}')`;
@@ -73,8 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
     createTiles();
     imagePicker.addEventListener('change', handleImageSelection);
 });
-
-
