@@ -19,7 +19,7 @@ h1 {
 .tile {
     width: 100px;
     height: 100px;
-    background-color: cornflowerblue;
     cursor: pointer;
-    object-fit: none;
+    background-position: center;
+    background-repeat: no-repeat;
 }
