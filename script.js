@@ -1,29 +1,45 @@
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
-    const applyImagesButton = document.getElementById('apply-images');
     const tiles = [];
 
     function createTiles() {
         for (let i = 0; i < 15; i++) {
-            const tile = document.createElement('img');
+            const tile = document.createElement('div');
             tile.className = 'tile';
-            
-            tile.style.objectPosition = '0 0';
-            tile.addEventListener('click', moveTile);
+            tile.addEventListener('mousedown', startDragging);
+            tile.addEventListener('dragstart', (e) => e.preventDefault());
             tiles.push(tile);
             gameBoard.appendChild(tile);
         }
         gameBoard.appendChild(document.createElement('div'));
     }
 
-    function moveTile() {
-        const emptyIndex = tiles.findIndex(tile => !tile.parentNode);
-        const tileIndex = tiles.indexOf(this);
+    function startDragging(event) {
+        const draggedTile = event.target;
+        const emptyTile = gameBoard.children[15];
 
-        if (Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4) {
-            gameBoard.insertBefore(this, gameBoard.children[emptyIndex]);
+        function moveTile() {
+            const emptyIndex = Array.prototype.indexOf.call(gameBoard.children, emptyTile);
+            const tileIndex = Array.prototype.indexOf.call(gameBoard.children, draggedTile);
+
+            if (Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4) {
+                gameBoard.insertBefore(draggedTile, gameBoard.children[emptyIndex]);
+            }
+
+            document.removeEventListener('mousemove', moveTile);
+            document.removeEventListener('mouseup', moveTile);
         }
+
+        document.addEventListener('mousemove', moveTile);
+        document.addEventListener('mouseup', moveTile);
     }
 
     function handleImageSelection() {
@@ -33,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
-            applyImagesButton.disabled = false;
             applyUserImage(reader.result);
         };
     }
@@ -43,16 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
         tempImage.src = imageSrc;
         tempImage.onload = () => {
             const tileSize = tempImage.width / 4;
+            const positions = [];
+
             for (let i = 0; i < 15; i++) {
-                tiles[i].src = imageSrc;
-                tiles[i].width = tileSize;
-                tiles[i].height = tileSize;
-                tiles[i].style.objectPosition = `-${(i % 4) * tileSize}px -${Math.floor(i / 4) * tileSize}px`;
+                positions.push({                     x: (i % 4) * tileSize,
+                    y: Math.floor(i / 4) * tileSize
+                });
+            }
+            shuffleArray(positions);
+
+            for (let i = 0; i < 15; i++) {
+                tiles[i].style.backgroundImage = `url('${imageSrc}')`;
+                tiles[i].style.backgroundSize = `${tempImage.width}px ${tempImage.height}px`;
+                tiles[i].style.backgroundPosition = `-${positions[i].x}px -${positions[i].y}px`;
             }
         };
     }
 
     createTiles();
-
     imagePicker.addEventListener('change', handleImageSelection);
 });
+
+                   
+
