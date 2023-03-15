@@ -1,110 +1,30 @@
-.board {
-  width: 320px;
-  height: 320px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-gap: 5px;
-  margin: auto;
-  margin-top: 50px;
-  border: 5px solid black;
-  background-color: #dddddd;
-  position: relative;
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 5px;
 }
 
 .tile {
-  width: 80px;
-  height: 80px;
-  background-size: 320px 320px;
-  background-repeat: no-repeat;
-  position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: cornflowerblue;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-#tile1 {
-  background-image: url("https://picsum.photos/id/1/80/80");
-  top: 0;
-  left: 0;
-}
-
-#tile2 {
-  background-image: url("https://picsum.photos/id/2/80/80");
-  top: 0;
-  left: 85px;
-}
-
-#tile3 {
-  background-image: url("https://picsum.photos/id/3/80/80");
-  top: 0;
-  left: 170px;
-}
-
-#tile4 {
-  background-image: url("https://picsum.photos/id/4/80/80");
-  top: 0;
-  left: 255px;
-}
-
-#tile5 {
-  background-image: url("https://picsum.photos/id/5/80/80");
-  top: 85px;
-  left: 0;
-}
-
-#tile6 {
-  background-image: url("https://picsum.photos/id/6/80/80");
-  top: 85px;
-  left: 85px;
-}
-
-#tile7 {
-  background-image: url("https://picsum.photos/id/7/80/80");
-  top: 85px;
-  left: 170px;
-}
-
-#tile8 {
-  background-image: url("https://picsum.photos/id/8/80/80");
-  top: 85px;
-  left: 255px;
-}
-
-#tile9 {
-  background-image: url("https://picsum.photos/id/9/80/80");
-  top: 170px;
-  left: 0;
-}
-
-#tile10 {
-  background-image: url("https://picsum.photos/id/10/80/80");
-  top: 170px;
-  left: 85px;
-}
-
-#tile11 {
-  background-image: url("https://picsum.photos/id/11/80/80");
-  top: 170px;
-  left: 170px;
-}
-
-#tile12 {
-  background-image: url("https://picsum.photos/id/12/80/80");
-  top: 170px;
-  left: 255px;
-}
-
-#tile13 {
-  background-image: url("https://picsum.photos/id/13/80/80");
-  top: 255px;
-  left: 0;
-}
-
-#tile14 {
-  background-image: url("https://picsum.photos/id/14/80/80");
-  top: 255px;
-  left: 85px;
-}
-
-#tile15 {
-  top: 255px;
-  left: 170px;
-}
