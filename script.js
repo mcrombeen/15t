@@ -21,23 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function onTileClick(event) {
-        const clickedTile = event.target;
-        if (clickedTile.classList.contains('empty-tile')) return; // Ignore click on the blue tile
+    const clickedTile = event.target;
+    if (clickedTile.classList.contains('empty-tile')) return; // Ignore click on the blue tile
 
-        const tileIndex = tiles.indexOf(clickedTile);
-        const emptyTile = tiles.find((tile) => tile.classList.contains('empty-tile'));
-        const emptyIndex = tiles.indexOf(emptyTile);
+    const tileIndex = tiles.indexOf(clickedTile);
+    const emptyTile = tiles.find((tile) => tile.classList.contains('empty-tile'));
+    const emptyIndex = tiles.indexOf(emptyTile);
 
-        function isTileAdjacent() {
-            return Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4;
-        }
-
-        if (isTileAdjacent()) {
-            const tempStyle = clickedTile.getAttribute('style');
-            clickedTile.setAttribute('style', emptyTile.getAttribute('style'));
-            emptyTile.setAttribute('style', tempStyle);
-        }
+    function isTileAdjacent() {
+        return Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4;
     }
+
+    if (isTileAdjacent()) {
+        const tempStyle = clickedTile.getAttribute('style');
+        clickedTile.setAttribute('style', emptyTile.getAttribute('style'));
+        emptyTile.setAttribute('style', tempStyle);
+
+        // Swap the positions in the tiles array
+        [tiles[tileIndex], tiles[emptyIndex]] = [tiles[emptyIndex], tiles[tileIndex]];
+    }
+}
+
 
     function handleImageSelection() {
         const file = imagePicker.files[0];
