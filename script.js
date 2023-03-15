@@ -15,46 +15,26 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 15; i++) {
             const tile = document.createElement('div');
             tile.className = 'tile';
-            tile.addEventListener('mousedown', onMouseDown);
+            tile.addEventListener('click', onTileClick);
             tiles.push(tile);
             gameBoard.appendChild(tile);
         }
         gameBoard.appendChild(document.createElement('div'));
     }
 
-    function onMouseDown(event) {
-        const draggedTile = event.target;
-        const tileIndex = tiles.indexOf(draggedTile);
+    function onTileClick(event) {
+        const clickedTile = event.target;
+        const tileIndex = tiles.indexOf(clickedTile);
 
         function isTileAdjacent() {
             return Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4;
         }
 
-        function onMouseMove(event) {
-            draggedTile.style.left = `${event.clientX - draggedTile.offsetWidth / 2}px`;
-            draggedTile.style.top = `${event.clientY - draggedTile.offsetHeight / 2}px`;
-        }
-
-        function onMouseUp() {
-            if (isTileAdjacent()) {
-                gameBoard.insertBefore(draggedTile, gameBoard.children[emptyIndex]);
-                tiles[emptyIndex] = draggedTile;
-                tiles[tileIndex] = null;
-                emptyIndex = tileIndex;
-            }
-            draggedTile.style.left = '';
-            draggedTile.style.top = '';
-
-            document.removeEventListener('mousemove', onMouseMove);
-            document.removeEventListener('mouseup', onMouseUp);
-        }
-
         if (isTileAdjacent()) {
-            draggedTile.style.position = 'absolute';
-            draggedTile.style.zIndex = '1000';
-
-            document.addEventListener('mousemove', onMouseMove);
-            document.addEventListener('mouseup', onMouseUp);
+            gameBoard.insertBefore(clickedTile, gameBoard.children[emptyIndex]);
+            tiles[emptyIndex] = clickedTile;
+            tiles[tileIndex] = null;
+            emptyIndex = tileIndex;
         }
     }
 
@@ -100,5 +80,4 @@ document.addEventListener('DOMContentLoaded', () => {
     createTiles();
     imagePicker.addEventListener('change', handleImageSelection);
 });
-
 
