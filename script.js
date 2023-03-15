@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function onTileClick(event) {
         const clickedTile = event.target;
+        if (clickedTile.classList.contains('empty-tile')) return; // Ignore click on the blue tile
+
         const tileIndex = tiles.indexOf(clickedTile);
         const emptyTile = tiles.find((tile) => tile.classList.contains('empty-tile'));
         const emptyIndex = tiles.indexOf(emptyTile);
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4;
         }
 
-        if (!clickedTile.classList.contains('empty-tile') && isTileAdjacent()) {
+        if (isTileAdjacent()) {
             const tempStyle = clickedTile.getAttribute('style');
             clickedTile.setAttribute('style', emptyTile.getAttribute('style'));
             emptyTile.setAttribute('style', tempStyle);
@@ -84,5 +86,4 @@ document.addEventListener('DOMContentLoaded', () => {
     createTiles();
     imagePicker.addEventListener('change', handleImageSelection);
 });
-
 
