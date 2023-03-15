@@ -14,15 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 15; i++) {
             const tile = document.createElement('div');
             tile.className = 'tile';
-            tile.addEventListener('mousedown', startDragging);
-            tile.addEventListener('dragstart', (e) => e.preventDefault());
+            tile.addEventListener('mousedown', onMouseDown);
             tiles.push(tile);
             gameBoard.appendChild(tile);
         }
         gameBoard.appendChild(document.createElement('div'));
     }
 
-    function startDragging(event) {
+    function onMouseDown(event) {
         const draggedTile = event.target;
         const emptyTile = gameBoard.children[15];
 
@@ -32,16 +31,29 @@ document.addEventListener('DOMContentLoaded', () => {
             return Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4;
         }
 
-        function moveTile() {
+        function onMouseMove(event) {
+            draggedTile.style.left = `${event.clientX - draggedTile.offsetWidth / 2}px`;
+            draggedTile.style.top = `${event.clientY - draggedTile.offsetHeight / 2}px`;
+        }
+
+        function onMouseUp() {
             if (isTileAdjacent()) {
                 gameBoard.insertBefore(draggedTile, gameBoard.children[Array.prototype.indexOf.call(gameBoard.children, emptyTile)]);
             }
+            draggedTile.style.left = '';
+            draggedTile.style.top = '';
+
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
         }
 
-        draggedTile.addEventListener('mouseup', () => {
-            moveTile();
-            draggedTile.removeEventListener('mouseup', moveTile);
-        });
+        if (isTileAdjacent()) {
+            draggedTile.style.position = 'absolute';
+            draggedTile.style.zIndex = '1000';
+
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        }
     }
 
     function handleImageSelection() {
@@ -83,7 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createTiles();
-    imagePicker.addEventListener('change', handleImageSelection);
+    imagePicker.addEventListener('change', handle handleImageSelection);
 });
-  
+
+
 
