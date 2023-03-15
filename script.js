@@ -7,6 +7,11 @@ for (let i = 0; i < tiles.length; i++) {
     emptyTile = tiles[i];
   }
 }
+let port;
+
+chrome.runtime.onConnect.addListener(function(msgPort) {
+  port = msgPort;
+});
 
 // shuffle the tiles
 function shuffle() {
