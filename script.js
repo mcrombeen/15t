@@ -1,60 +1,28 @@
-const tiles = document.querySelectorAll('.tile');
-let emptyTile;
+document.addEventListener('DOMContentLoaded', () => {
+    const gameBoard = document.getElementById('game-board');
+    const tiles = [];
 
-// find and store the empty tile
-for (let i = 0; i < tiles.length; i++) {
-  if (tiles[i].classList.contains('empty')) {
-    emptyTile = tiles[i];
-  }
-}
+    function createTiles() {
+        for (let i = 1; i <= 15; i++) {
+            const tile = document.createElement('div');
+            tile.className = 'tile';
+            tile.textContent = i;
+            tile.addEventListener('click', moveTile);
+            tiles.push(tile);
+            gameBoard.appendChild(tile);
+        }
+        gameBoard.appendChild(document.createElement('div'));
+    }
 
-// shuffle the tiles
-function shuffle() {
-  let tiles = document.querySelectorAll(".tile");
-  let tileArray = Array.from(tiles);
+    function moveTile() {
+        const emptyIndex = tiles.findIndex(tile => !tile.parentNode);
+        const tileIndex = tiles.indexOf(this);
 
-  tileArray.forEach((tile) => {
-    let randomPos = Math.floor(Math.random() * 15);
-    let temp = tileArray[randomPos].style.order;
-    tileArray[randomPos].style.order = tile.style.order;
-    tile.style.order = temp;
-  });
-}
+        if (Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4) {
+            gameBoard.insertBefore(this, gameBoard.children[emptyIndex]);
+        }
+    }
 
-// move a tile to the empty space
-function moveTile(tile) {
-  const emptyTileX = emptyTile.offsetLeft;
-  const emptyTileY = emptyTile.offsetTop;
-  const tileX = tile.offsetLeft;
-  const tileY = tile.offsetTop;
-  
-  if (tileX === emptyTileX && tileY === emptyTileY - tile.offsetHeight) {
-    // move up
-    tile.style.top = emptyTileY + 'px';
-    emptyTile.style.top = tileY + 'px';
-    emptyTile = tile;
-  } else if (tileX === emptyTileX && tileY === emptyTileY + tile.offsetHeight) {
-    // move down
-    tile.style.top = emptyTileY + 'px';
-    emptyTile.style.top = tileY + 'px';
-    emptyTile = tile;
-  } else if (tileX === emptyTileX - tile.offsetWidth && tileY === emptyTileY) {
-    // move left
-    tile.style.left = emptyTileX + 'px';
-    emptyTile.style.left = tileX + 'px';
-    emptyTile = tile;
-  } else if (tileX === emptyTileX + tile.offsetWidth && tileY === emptyTileY) {
-    // move right
-    tile.style.left = emptyTileX + 'px';
-    emptyTile.style.left = tileX + 'px';
-    emptyTile = tile;
-  }
-}
-
-// add event listeners to the tiles
-for (let i = 0; i < tiles.length; i++) {
-  tiles[i].addEventListener('click', function() {
-    moveTile(this);
-  });
-}
+    createTiles();
+});
 
