@@ -53,27 +53,33 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    function applyUserImage(imageSrc) {
-        const tempImage = new Image();
-        tempImage.src = imageSrc;
-        tempImage.onload = () => {
-            const tileSize = tempImage.width / 4;
-            const positions = [];
+   function applyUserImage(imageSrc) {
+    const tempImage = new Image();
+    tempImage.src = imageSrc;
+    tempImage.onload = () => {
+        const tileSize = tempImage.width / 4;
+        const positions = [];
 
-            for (let i = 0; i < 15; i++) {
-                positions.push({                     x: (i % 4) * tileSize,
-                    y: Math.floor(i / 4) * tileSize
-                });
-            }
-            shuffleArray(positions);
+        for (let i = 0; i < 16; i++) {
+            positions.push({
+                x: (i % 4) * tileSize,
+                y: Math.floor(i / 4) * tileSize
+            });
+        }
 
-            for (let i = 0; i < 15; i++) {
-                tiles[i].style.backgroundImage = `url('${imageSrc}')`;
-                tiles[i].style.backgroundSize = `${tempImage.width}px ${tempImage.height}px`;
-                tiles[i].style.backgroundPosition = `-${positions[i].x}px -${positions[i].y}px`;
-            }
-        };
-    }
+        // Remove one of the positions for the empty space
+        positions.splice(Math.floor(Math.random() * positions.length), 1);
+
+        shuffleArray(positions);
+
+        for (let i = 0; i < 15; i++) {
+            tiles[i].style.backgroundImage = `url('${imageSrc}')`;
+            tiles[i].style.backgroundSize = `${tempImage.width}px ${tempImage.height}px`;
+            tiles[i].style.backgroundPosition = `-${positions[i].x}px -${positions[i].y}px`;
+        }
+    };
+}
+
 
     createTiles();
     imagePicker.addEventListener('change', handleImageSelection);
