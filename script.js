@@ -9,32 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
-    let emptyIndex = 15;
 
     function createTiles() {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 16; i++) {
             const tile = document.createElement('div');
             tile.className = 'tile';
             tile.addEventListener('click', onTileClick);
             tiles.push(tile);
             gameBoard.appendChild(tile);
         }
-        gameBoard.appendChild(document.createElement('div'));
     }
 
     function onTileClick(event) {
         const clickedTile = event.target;
         const tileIndex = tiles.indexOf(clickedTile);
+        const emptyTile = tiles.find((tile) => tile.classList.contains('empty-tile'));
+        const emptyIndex = tiles.indexOf(emptyTile);
 
         function isTileAdjacent() {
             return Math.abs(emptyIndex - tileIndex) === 1 || Math.abs(emptyIndex - tileIndex) === 4;
         }
 
-        if (isTileAdjacent()) {
-            gameBoard.insertBefore(clickedTile, gameBoard.children[emptyIndex]);
-            tiles[emptyIndex] = clickedTile;
-            tiles[tileIndex] = null;
-            emptyIndex = tileIndex;
+        if (!clickedTile.classList.contains('empty-tile') && isTileAdjacent()) {
+            const tempStyle = clickedTile.getAttribute('style');
+            clickedTile.setAttribute('style', emptyTile.getAttribute('style'));
+            emptyTile.setAttribute('style', tempStyle);
         }
     }
 
@@ -63,16 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // Remove one of the positions for the empty space
-            emptyIndex = Math.floor(Math.random() * positions.length);
+            // Remove one of the positions for the empty space and set the blue background
+            const emptyIndex = Math.floor(Math.random() * positions.length);
             positions.splice(emptyIndex, 1);
+            tiles[emptyIndex].classList.add('empty-tile');
+            tiles[emptyIndex].style.backgroundColor = 'lightblue';
 
             shuffleArray(positions);
 
-            for (let i = 0; i < 15; i++) {
-                tiles[i].style.backgroundImage = `url('${imageSrc}')`;
-                tiles[i].style.backgroundSize = `${tempImage.width}px ${tempImage.height}px`;
-                tiles[i].style.backgroundPosition = `-${positions[i].x}px -${positions[i].y}px`;
+            for (let i = 0, j = 0; i < 16; i++) {
+                if (i !== emptyIndex) {
+                    tiles[i].style.backgroundImage = `url('${imageSrc}')`;
+                    tiles[i].style.backgroundSize = `${tempImage.width}px ${tempImage.height}px`;
+                    tiles[i].style.backgroundPosition = `-${positions[j].x}px -${positions[j].y}px`;
+                    j++;
+                }
             }
         };
     }
@@ -80,4 +84,5 @@ document.addEventListener('DOMContentLoaded', () => {
     createTiles();
     imagePicker.addEventListener('change', handleImageSelection);
 });
+
 
