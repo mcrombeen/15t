@@ -13,6 +13,10 @@ h1 {
     background-color: transparent;
 }
 
+input {
+    margin-bottom: 30px;
+}
+
 
 #game-board {
     display: grid;
