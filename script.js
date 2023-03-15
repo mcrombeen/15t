@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
-    let emptyIndex;
 
     function createTiles() {
         for (let i = 0; i < 15; i++) {
@@ -18,24 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
         emptyTile.style.backgroundColor = 'lightblue';
         tiles.push(emptyTile);
         gameBoard.appendChild(emptyTile);
-        emptyIndex = 15;
     }
 
     function onTileClick(event) {
         const clickedTile = event.target;
-        if (clickedTile === tiles[emptyIndex]) {
+        if (clickedTile.classList.contains('empty')) {
             return;
         }
 
-        const clickedIndex = tiles.indexOf(clickedTile);
-        const isAdjacent = Math.abs(emptyIndex - clickedIndex) === 1 || Math.abs(emptyIndex - clickedIndex) === 4;
+        const emptyTile = document.querySelector('.empty');
+        const clickedTileRect = clickedTile.getBoundingClientRect();
+        const emptyTileRect = emptyTile.getBoundingClientRect();
+        const isAdjacent = Math.abs(clickedTileRect.left - emptyTileRect.left) + Math.abs(clickedTileRect.top - emptyTileRect.top) === clickedTileRect.width || Math.abs(clickedTileRect.left - emptyTileRect.left) + Math.abs(clickedTileRect.top - emptyTileRect.top) === clickedTileRect.height;
 
         if (isAdjacent) {
-            gameBoard.insertBefore(tiles[emptyIndex], tiles[clickedIndex]);
-            gameBoard.insertBefore(tiles[clickedIndex], tiles[emptyIndex]);
-
-            [tiles[emptyIndex], tiles[clickedIndex]] = [tiles[clickedIndex], tiles[emptyIndex]];
-            emptyIndex = clickedIndex;
+            const tempStyle = clickedTile.getAttribute('style');
+            clickedTile.setAttribute('style', emptyTile.getAttribute('style'));
+            emptyTile.setAttribute('style', tempStyle);
+            emptyTile.style.backgroundColor = 'lightblue';
         }
     }
 
@@ -77,4 +76,5 @@ document.addEventListener('DOMContentLoaded', () => {
     createTiles();
     imagePicker.addEventListener('change', handleImageSelection);
 });
+
 
