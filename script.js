@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
+    const defaultImageURL = 'https://your-default-image-url.com/image.jpg'; // Replace this with your default image URL
+
 
     function createTiles() {
         for (let i = 0; i < 15; i++) {
@@ -89,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createTiles();
+    applyUserImage(defaultImageURL); // Load the default image
     imagePicker.addEventListener('change', handleImageSelection);
 });
 
