@@ -1,76 +1,29 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f8f9fa;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Tile Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-container">
+            <h1 class="game-title">15 Tile Game</h1> <!-- Move the title inside the game-container div -->
+            <div id="game-board"></div>
+            <input type="file" id="image-picker" accept="image/*">
+        </div>
+        <div class="controls-container">
+            <button class="btn">Button 1</button>
+            <button class="btn">Button 2</button>
+            <button class="btn">Button 3</button>
+            <button class="btn">Button 4</button>
+            <button class="btn">Button 5</button>
+            <button class="btn">Button 6</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
 
-.container {
-    display: flex;
-}
-
-.game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 30px;
-}
-
-h1 {
-    margin-bottom: 30px;
-}
-
-.yellow-tile {
-    background-color: transparent;
-}
-
-input {
-    margin-bottom: 30px;
-}
-
-.controls-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    height: 420px; /* Adjust this height to match the height of your game board */
-}
-
-.button {
-    display: inline-block;
-    background-color: #007bff;
-    border: none;
-    color: white;
-    text-align: center;
-    padding: 10px 20px;
-    margin: 2px 0;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
-#game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(4, 100px);
-    gap: 5px;
-}
-
-.tile {
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
