@@ -105,7 +105,7 @@ function playSwapSound() {
     audio.play();
 }
 
-    }
+    
 
     function handleImageSelection() {
         const file = hiddenImagePicker.files[0];
