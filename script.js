@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         const yellowTile = document.createElement('div');
         yellowTile.className = 'tile yellow-tile';
-        yellowTile.style.backgroundImage = "url('https://raw.githubusercontent.com/mcrombeen/15t/main/test1/oie_oie_canvas.png')"; // Replace this path with the path to your yellow tile image
+        yellowTile.style.backgroundImage = "url('https://raw.githubusercontent.com/mcrombeen/15t/main/testb1/oie_oie_canvas.png')"; // Replace this path with the path to your yellow tile image
         yellowTile.style.backgroundSize = 'cover';
         gameBoard.appendChild(yellowTile);
     }
