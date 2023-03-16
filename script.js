@@ -97,15 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameBoard.insertBefore(tile1, tile2);
         gameBoard.insertBefore(tile2, temp);
         gameBoard.removeChild(temp);
-        
-        function swapTiles(tile1, tile2) {
-    const temp = document.createElement('div');
-    gameBoard.insertBefore(temp, tile1);
-    gameBoard.insertBefore(tile1, tile2);
-    gameBoard.insertBefore(tile2, temp);
-    gameBoard.removeChild(temp);
-
-    playSwapSound();
+        playSwapSound();
 }
 
 function playSwapSound() {
