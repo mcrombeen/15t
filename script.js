@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 function playSwapSound() {
-    const audio = new Audio('swap_sound.mp3');
+    const audio = new Audio('https://raw.githubusercontent.com/mcrombeen/15t/main/swap_sound.mp3');
     audio.play();
 }
 
