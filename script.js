@@ -45,13 +45,43 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.abs(index1 - index2) === 1 || Math.abs(index1 - index2) === 4;
     }
 
+    
     function swapTiles(tile1, tile2) {
-        const temp = document.createElement('div');
-        gameBoard.insertBefore(temp, tile1);
-        gameBoard.insertBefore(tile1, tile2);
-        gameBoard.insertBefore(tile2, temp);
-        gameBoard.removeChild(temp);
-    }
+    const tile1Rect = tile1.getBoundingClientRect();
+    const tile2Rect = tile2.getBoundingClientRect();
+
+    const temp = document.createElement('div');
+    gameBoard.insertBefore(temp, tile1);
+    gameBoard.insertBefore(tile1, tile2);
+    gameBoard.insertBefore(tile2, temp);
+    gameBoard.removeChild(temp);
+
+    const tile1Translate = {
+        x: tile2Rect.left - tile1Rect.left,
+        y: tile2Rect.top - tile1Rect.top
+    };
+    const tile2Translate = {
+        x: tile1Rect.left - tile2Rect.left,
+        y: tile1Rect.top - tile2Rect.top
+    };
+
+    tile1.style.transform = `translate(${tile1Translate.x}px, ${tile1Translate.y}px)`;
+    tile2.style.transform = `translate(${tile2Translate.x}px, ${tile2Translate.y}px)`;
+
+    setTimeout(() => {
+        tile1.style.transition = 'transform 0.3s';
+        tile2.style.transition = 'transform 0.3s';
+
+        tile1.style.transform = '';
+        tile2.style.transform = '';
+
+        setTimeout(() => {
+            tile1.style.transition = '';
+            tile2.style.transition = '';
+        }, 300);
+    }, 0);
+}
+
 
     function handleImageSelection() {
         const file = hiddenImagePicker.files[0];
