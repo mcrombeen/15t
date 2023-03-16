@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const presetImages = ['https://raw.githubusercontent.com/mcrombeen/15t/main/1.jpg', 
                           'https://raw.githubusercontent.com/mcrombeen/15t/main/oie_oie_canvas.png',
+                          'https://raw.githubusercontent.com/mcrombeen/15t/main/test.jpg',
                           'https://raw.githubusercontent.com/mcrombeen/15t/main/2.jpg'];
 
     const btnImagePicker = document.getElementById('btn-image-picker');
