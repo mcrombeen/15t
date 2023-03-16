@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
-    const defaultImageURL = 'https://your-default-image-url.com/image.jpg'; // Replace this with your default image URL
+    const defaultImageURL = 'https://raw.githubusercontent.com/mcrombeen/15t/main/test1/oie_oie_canvas.png'; // Replace this with your default image URL
 
 
     function createTiles() {
