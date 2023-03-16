@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
+
+    const defaultImageURL = 'https://raw.githubusercontent.com/mcrombeen/15t/main/oie_oie_canvas.png'; // Replace this with your default image URL
+
     const btnImagePicker = document.getElementById('btn-image-picker');
 	const hiddenImagePicker = document.createElement('input');
 	hiddenImagePicker.type = 'file';
@@ -13,6 +16,7 @@ document.body.appendChild(hiddenImagePicker);
 btnImagePicker.addEventListener('click', () => {
     hiddenImagePicker.click();
 });
+
 
 
     function createTiles() {
@@ -102,10 +106,14 @@ btnImagePicker.addEventListener('click', () => {
     }
 
     createTiles();
+    applyUserImage(defaultImageURL); // Load the default image
     imagePicker.addEventListener('change', handleImageSelection);
 });
 
            
+
+
+   
 
 
    
