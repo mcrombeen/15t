@@ -72,6 +72,7 @@ input {
     cursor: pointer;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
 }
 
 
