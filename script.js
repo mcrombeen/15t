@@ -2,6 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
+    const btnImagePicker = document.getElementById('btn-image-picker');
+	const hiddenImagePicker = document.createElement('input');
+	hiddenImagePicker.type = 'file';
+	hiddenImagePicker.accept = 'image/*';
+	hiddenImagePicker.style.display = 'none';
+	hiddenImagePicker.addEventListener('change', handleImageSelection);
+document.body.appendChild(hiddenImagePicker);
+
+btnImagePicker.addEventListener('click', () => {
+    hiddenImagePicker.click();
+});
+
 
     function createTiles() {
         for (let i = 0; i < 15; i++) {
