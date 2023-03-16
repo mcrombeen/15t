@@ -1,8 +1,23 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.container {
+    display: flex;
+}
+
+.game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 30px;
 }
 
 h1 {
@@ -17,8 +32,7 @@ input {
     margin-bottom: 30px;
 }
 
-/* New button styles */
-.button-container {
+.controls-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -42,8 +56,6 @@ input {
 .button:hover {
     background-color: #0056b3;
 }
-
-/* End of new button styles */
 
 #game-board {
     display: grid;
