@@ -9,6 +9,11 @@ body {
     background-color: #f8f9fa;
 }
 
+.game-title {
+    margin-bottom: 30px;
+    margin-left: calc(50% - (4 * 100px + 3 * 5px) / 2); /* Adjust the margin-left to align with the image */
+}
+
 .container {
     display: flex;
     align-items: flex-start;
