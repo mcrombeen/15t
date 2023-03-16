@@ -2,7 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
+
     const defaultImageURL = 'https://raw.githubusercontent.com/mcrombeen/15t/main/oie_oie_canvas.png'; // Replace this with your default image URL
+
+    const btnImagePicker = document.getElementById('btn-image-picker');
+	const hiddenImagePicker = document.createElement('input');
+	hiddenImagePicker.type = 'file';
+	hiddenImagePicker.accept = 'image/*';
+	hiddenImagePicker.style.display = 'none';
+	hiddenImagePicker.addEventListener('change', handleImageSelection);
+document.body.appendChild(hiddenImagePicker);
+
+btnImagePicker.addEventListener('click', () => {
+    hiddenImagePicker.click();
+});
+
 
 
     function createTiles() {
@@ -43,15 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleImageSelection() {
-        const file = imagePicker.files[0];
-        if (!file) return;
+    const file = hiddenImagePicker.files[0]; // Change this line
+    if (!file) return;
 
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-            applyUserImage(reader.result);
-        };
-    }
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        applyUserImage(reader.result);
+    };
+}
+
 
     function applyUserImage(imageSrc) {
         const tempImage = new Image();

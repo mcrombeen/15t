@@ -1,8 +1,29 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.game-title {
+    margin-bottom: 30px;
+    margin-left: calc(50% - (4 * 100px + 3 * 5px) / 2); /* Adjust the margin-left to align with the image */
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.game-container {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 30px;
 }
 
 h1 {
@@ -17,6 +38,31 @@ input {
     margin-bottom: 30px;
 }
 
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 420px; /* Adjust this height to match the height of your game board */
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 2px 0;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
 
 #game-board {
     display: grid;
@@ -32,3 +78,4 @@ input {
     background-position: center;
     background-repeat: no-repeat;
 }
+
