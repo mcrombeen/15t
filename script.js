@@ -53,15 +53,16 @@ btnImagePicker.addEventListener('click', () => {
     }
 
     function handleImageSelection() {
-        const file = imagePicker.files[0];
-        if (!file) return;
+    const file = hiddenImagePicker.files[0]; // Change this line
+    if (!file) return;
 
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-            applyUserImage(reader.result);
-        };
-    }
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        applyUserImage(reader.result);
+    };
+}
+
 
     function applyUserImage(imageSrc) {
         const tempImage = new Image();
