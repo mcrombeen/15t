@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 swapTiles(tile1, tile2);
+                playSwapSound();
                 tile1.style.visibility = 'visible';
                 tile2.style.visibility = 'visible';
 
