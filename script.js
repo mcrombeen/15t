@@ -1,23 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
-    const imagePicker = document.getElementById('image-picker');
     const tiles = [];
 
     const defaultImageURL = 'https://raw.githubusercontent.com/mcrombeen/15t/main/oie_oie_canvas.png'; // Replace this with your default image URL
 
     const btnImagePicker = document.getElementById('btn-image-picker');
-	const hiddenImagePicker = document.createElement('input');
-	hiddenImagePicker.type = 'file';
-	hiddenImagePicker.accept = 'image/*';
-	hiddenImagePicker.style.display = 'none';
-	hiddenImagePicker.addEventListener('change', handleImageSelection);
-document.body.appendChild(hiddenImagePicker);
+    const hiddenImagePicker = document.createElement('input');
+    hiddenImagePicker.type = 'file';
+    hiddenImagePicker.accept = 'image/*';
+    hiddenImagePicker.style.display = 'none';
+    hiddenImagePicker.addEventListener('change', handleImageSelection);
+    document.body.appendChild(hiddenImagePicker);
 
-btnImagePicker.addEventListener('click', () => {
-    hiddenImagePicker.click();
-});
-
-
+    btnImagePicker.addEventListener('click', () => {
+        hiddenImagePicker.click();
+    });
 
     function createTiles() {
         for (let i = 0; i < 15; i++) {
@@ -57,16 +54,15 @@ btnImagePicker.addEventListener('click', () => {
     }
 
     function handleImageSelection() {
-    const file = hiddenImagePicker.files[0]; // Change this line
-    if (!file) return;
+        const file = hiddenImagePicker.files[0];
+        if (!file) return;
 
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-        applyUserImage(reader.result);
-    };
-}
-
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            applyUserImage(reader.result);
+        };
+    }
 
     function applyUserImage(imageSrc) {
         const tempImage = new Image();
@@ -82,10 +78,12 @@ btnImagePicker.addEventListener('click', () => {
                 });
             }
 
-            // Remove one of the positions for the yellow space
-            positions.splice(Math.floor(Math.random() * positions.length), 1);
+            const emptyTileIndex = Math.floor(Math.random() * positions.length);
+            positions.splice(emptyTileIndex, 1);
 
-            shuffleArray(positions);
+            do {
+                shuffleArray(positions);
+            } while (!isSolvable(positions, emptyTileIndex));
 
             for (let i = 0; i < 15; i++) {
                 tiles[i].style.backgroundImage = `url('${imageSrc}')`;
@@ -100,20 +98,36 @@ btnImagePicker.addEventListener('click', () => {
     }
 
     function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function isSolvable(positions, emptyTileIndex) {
+        let inversions = 0;
+        const tileIndices = positions.map((pos, index) => index);
+
+        for (let i = 0; i < tileIndices.length; i++) {
+            for (let j = i + 1; j < tileIndices.length; j++) {
+                if (tileIndices[i] > tileIndices[j]) {
+                    inversions++;
+                }
+            }
+        }
+
+        // If the grid width is odd, return true if inversion count is even
+        if (4 % 2 === 1) {
+            return inversions % 2 === 0;
+        } else {
+            // If the grid width is even, the puzzle is solvable if
+            // the inversion count and the row of the blank tile are both even or both odd
+            const emptyTileRow = Math.floor(emptyTileIndex / 4);
+            return (inversions % 2 === 0) === (emptyTileRow % 2 === 0);
         }
     }
 
     createTiles();
     applyUserImage(defaultImageURL); // Load the default image
-    imagePicker.addEventListener('change', handleImageSelection);
 });
 
-           
-
-
-   
-
-
-   
