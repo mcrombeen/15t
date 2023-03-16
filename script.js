@@ -50,6 +50,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const tile1Rect = tile1.getBoundingClientRect();
     const tile2Rect = tile2.getBoundingClientRect();
 
+    const tile1Index = Array.prototype.indexOf.call(gameBoard.children, tile1);
+    const tile2Index = Array.prototype.indexOf.call(gameBoard.children, tile2);
+
+    const dx = (tile2Index % 4 - tile1Index % 4) * (tile1Rect.width + 5);
+    const dy = (Math.floor(tile2Index / 4) - Math.floor(tile1Index / 4)) * (tile1Rect.height + 5);
+
+    tile1.animate([
+        { transform: `translate(0, 0)` },
+        { transform: `translate(${dx}px, ${dy}px)` }
+    ], {
+        duration: 300,
+        fill: 'forwards'
+    });
+
+    tile2.animate([
+        { transform: `translate(0, 0)` },
+        { transform: `translate(${-dx}px, ${-dy}px)` }
+    ], {
+        duration: 300,
+        fill: 'forwards'
+    });
+
+    // Allow time for the animation to complete before updating the DOM
+    setTimeout(() => {
+        const temp = document.createElement('div');
+        gameBoard.insertBefore(temp, tile1);
+        gameBoard.insertBefore(tile1, tile2);
+        gameBoard.insertBefore(tile2, temp);
+        gameBoard.removeChild(temp);
+
+        // Clear the transform after the swap
+        tile1.style.transform = '';
+        tile2.style.transform = '';
+    }, 300);
+}
+
+
     const temp = document.createElement('div');
     gameBoard.insertBefore(temp, tile1);
     gameBoard.insertBefore(tile1, tile2);
