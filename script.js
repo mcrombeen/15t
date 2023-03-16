@@ -1,6 +1,6 @@
 const presetImages = [
-    'path/to/your/assets/1.jpg',
-    'path/to/your/assets/2.jpg'
+    'https://raw.githubusercontent.com/mcrombeen/15t/main/',
+    'https://raw.githubusercontent.com/mcrombeen/15t/main/'
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
