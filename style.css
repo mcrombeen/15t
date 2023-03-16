@@ -36,6 +36,8 @@ input {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
+    height: 420px; /* Adjust this height to match the height of your game board */
 }
 
 .button {
