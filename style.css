@@ -9,10 +9,7 @@ body {
     background-color: #f8f9fa;
 }
 
-.game-title {
-    margin-bottom: 30px;
-    margin-left: calc(50% - (4 * 100px + 3 * 5px) / 2); /* Adjust the margin-left to align with the image */
-}
+/* Removed the game-title class */
 
 .container {
     display: flex;
@@ -26,9 +23,7 @@ body {
     margin-right: 30px;
 }
 
-h1 {
-    margin-bottom: 30px;
-}
+/* Removed the h1 styles */
 
 .yellow-tile {
     background-color: transparent;
@@ -78,4 +73,5 @@ input {
     background-position: center;
     background-repeat: no-repeat;
 }
+
 
