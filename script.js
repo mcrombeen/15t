@@ -1,9 +1,14 @@
+const presetImages = [
+    'path/to/your/assets/1.jpg',
+    'path/to/your/assets/2.jpg'
+];
+
 document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const imagePicker = document.getElementById('image-picker');
     const tiles = [];
 
-    const defaultImageURL = 'https://raw.githubusercontent.com/mcrombeen/15t/main/oie_oie_canvas.png'; // Replace this with your default image URL
+    const defaultImageURL = 'https://raw.githubusercontent.com/mcrombeen/15t/main/oie_oie_canvas.png';
 
     const btnImagePicker = document.getElementById('btn-image-picker');
     const hiddenImagePicker = document.createElement('input');
@@ -27,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         const yellowTile = document.createElement('div');
         yellowTile.className = 'tile yellow-tile';
-        yellowTile.style.backgroundImage = "url('https://raw.githubusercontent.com/mcrombeen/15t/main/test1/oie_oie_canvas.png')"; // Replace this path with the path to your yellow tile image
+        yellowTile.style.backgroundImage = "url('https://raw.githubusercontent.com/mcrombeen/15t/main/test1/oie_oie_canvas.png')";
         yellowTile.style.backgroundSize = 'cover';
         gameBoard.appendChild(yellowTile);
     }
@@ -47,33 +52,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function swapTiles(tile1, tile2) {
-    const rect1 = tile1.getBoundingClientRect();
-    const rect2 = tile2.getBoundingClientRect();
-    const deltaX = rect1.left - rect2.left;
-    const deltaY = rect1.top - rect2.top;
+        const dx = tile1.offsetLeft - tile2.offsetLeft;
+        const dy = tile1.offsetTop - tile2.offsetTop;
 
-    const temp = document.createElement('div');
-    gameBoard.insertBefore(temp, tile1);
-    gameBoard.insertBefore(tile1, tile2);
-    gameBoard.insertBefore(tile2, temp);
-    gameBoard.removeChild(temp);
+        tile1.style.transform = `translate(${dx}px, ${dy}px)`;
+        tile2.style.transform = `translate(${-dx}px, ${-dy}px)`;
 
-    tile1.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-    tile2.style.transform = `translate(${-deltaX}px, ${-deltaY}px)`;
+        tile1.addEventListener('transitionend', function onTransitionEnd() {
+            tile1.removeEventListener('transitionend', onTransitionEnd);
 
-    setTimeout(() => {
-        tile1.style.transition = 'transform 300ms';
-        tile2.style.transition = 'transform 300ms';
-        tile1.style.transform = 'translate(0, 0)';
-        tile2.style.transform = 'translate(0, 0)';
-    }, 0);
+            const temp = document.createElement('div');
+            gameBoard.insertBefore(temp, tile1);
+            gameBoard.insertBefore(tile1, tile2);
+            gameBoard.insertBefore(tile2, temp);
+            gameBoard.removeChild(temp);
 
-    setTimeout(() => {
-        tile1.style.transition = '';
-        tile2.style.transition = '';
-    }, 300);
-}
-
+            tile1.style.transform = '';
+            tile2.style.transform = '';
+        });
+    }
 
     function handleImageSelection() {
         const file = hiddenImagePicker.files[0];
@@ -96,35 +93,40 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < 16; i++) {
                 positions.push({
                     x: (i % 4) * tileSize,
-                    y: Math.floor(i / 4) * tileSize
-                });
-            }
+                    y: Math.floor(i / 4) * tileSize            });
 
-            positions.splice(Math.floor(Math.random() * positions.length), 1);
+        // Remove one of the positions for the yellow space
+        positions.splice(Math.floor(Math.random() * positions.length), 1);
 
-            shuffleArray(positions);
+        shuffleArray(positions);
 
-            for (let i = 0; i < 15; i++) {
-                tiles[i].style.backgroundImage = `url('${imageSrc}')`;
-                tiles[i].style.backgroundSize = `${tempImage.width}px ${tempImage.height}px`;
-                tiles[i].style.backgroundPosition = `-${positions[i].x}px -${positions[i].y}px`;
-            }
-
-            const gameBoardBackground = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('${imageSrc}')`;
-            gameBoard.style.backgroundImage = gameBoardBackground;
-            gameBoard.style.backgroundSize = 'cover';
-        };
-    }
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+        for (let i = 0; i < 15; i++) {
+            tiles[i].style.backgroundImage = `url('${imageSrc}')`;
+            tiles[i].style.backgroundSize = `${tempImage.width}px ${tempImage.height}px`;
+            tiles[i].style.backgroundPosition = `-${positions[i].x}px -${positions[i].y}px`;
         }
+
+        const gameBoardBackground = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('${imageSrc}')`;
+        gameBoard.style.backgroundImage = gameBoardBackground;
+        gameBoard.style.backgroundSize = 'cover';
+    };
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
+}
 
-    createTiles();
-    applyUserImage(defaultImageURL);
-    imagePicker.addEventListener('change', handleImageSelection);
-});
+function getRandomPresetImage() {
+    const index = Math.floor(Math.random() * presetImages.length);
+    return presetImages[index];
+}
 
+createTiles();
+applyUserImage(getRandomPresetImage());
+imagePicker.addEventListener('change', handleImageSelection);
+
+        
+        });
