@@ -17,6 +17,33 @@ input {
     margin-bottom: 30px;
 }
 
+/* New button styles */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 2px 0;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* End of new button styles */
 
 #game-board {
     display: grid;
@@ -32,3 +59,4 @@ input {
     background-position: center;
     background-repeat: no-repeat;
 }
+
