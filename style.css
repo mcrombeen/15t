@@ -9,19 +9,11 @@ body {
     background-color: #f8f9fa;
 }
 
+/* Removed the game-title class */
+
 .container {
     display: flex;
-    
-    align-items: center;
-}
-
-.game-controls-container {
-    display: flex;
-
-.title-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    align-items: flex-start;
 }
 
 .game-container {
@@ -31,13 +23,7 @@ body {
     margin-right: 30px;
 }
 
-h1 {
-    margin-bottom: 30px;
-}
-
-.game-title {
-    margin-bottom: 30px;
-}
+/* Removed the h1 styles */
 
 .yellow-tile {
     background-color: transparent;
@@ -87,4 +73,5 @@ input {
     background-position: center;
     background-repeat: no-repeat;
 }
+
 
