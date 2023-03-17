@@ -33,7 +33,9 @@ body {
 
 .game-title {
     font-size: 36px;
-    left: 30%;
+    position: fixed;
+  left: 50%; /* center horizontally */
+  transform: translateX(-50px); /* move 20px left from center */
   
     font-family: 'Dancing Script', cursive;
 
