@@ -9,8 +9,6 @@ body {
     background-color: #f8f9fa;
 }
 
-/* Removed the game-title class */
-
 .container {
     display: flex;
     align-items: flex-start;
@@ -23,8 +21,6 @@ body {
     margin-right: 30px;
 }
 
-/* Removed the h1 styles */
-
 .yellow-tile {
     background-color: transparent;
 }
@@ -33,11 +29,11 @@ input {
     margin-bottom: 30px;
 }
 
-.controls-container {
+.buttons-container {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    height: 420px; /* Adjust this height to match the height of your game board */
+    align-items: center;
+    width: 440px;
 }
 
 .button {
@@ -74,5 +70,3 @@ input {
     background-repeat: no-repeat;
     position: relative;
 }
-
-
