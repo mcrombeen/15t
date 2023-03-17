@@ -56,11 +56,11 @@ input {
 
 .button {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #f8f9fa;
     font-family: 'Dancing Script', cursive;
+    color: black;
 
     border: none;
-    color: white;
     text-align: center;
     padding: 10px 20px;
     margin: 2px 0;
