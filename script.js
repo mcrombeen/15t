@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btnImagePicker.addEventListener('click', () => {
         hiddenImagePicker.click();
     });
+    
+    const playAgainButton = document.getElementById('play-again-button');
+    playAgainButton.addEventListener('click', () => {
+    location.reload();
+    });
+
 
     function createTiles() {
         for (let i = 0; i < 15; i++) {
