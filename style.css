@@ -16,7 +16,12 @@ body {
 }
 
 .title-container {
-    margin-bottom: 20px;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  padding: 10px;
+  background-color: white;
+  z-index: 1;
 }
 
 .game-container {
@@ -27,8 +32,8 @@ body {
 }
 
 .game-title {
-    font-size: 36px;
-    margin: 0;
+    font-size: 28px;
+    margin: 20px;
 }
 
 .yellow-tile {
