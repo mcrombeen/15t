@@ -61,7 +61,7 @@ input {
 
 .controls-container:hover .button {
   font-size: 24px;
-  transition: font-size 0.3s ease-in-out;
+  transition: font-size 0.3s cubic-bezier(0, 0.41, 0.9, 1.09);
   text-decoration-color: red;
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
