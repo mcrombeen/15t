@@ -59,13 +59,12 @@ input {
     background-color: #f8f9fa;
     font-family: 'Dancing Script', cursive;
     color: black;
-
     border: none;
     text-align: center;
     padding: 10px 20px;
     margin: 2px 0;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 20px;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s;
@@ -80,10 +79,12 @@ input {
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: repeat(4, 100px);
     gap: 5px;
+    border-radius: 4px;
 }
 
 .tile {
     width: 100px;
+    border-radius: 4px;
     height: 100px;
     cursor: pointer;
     background-position: center;
