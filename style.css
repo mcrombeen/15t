@@ -104,7 +104,8 @@ input {
 .tile {
     width: 100px;
     border-radius: 4px;
-    border: 1px;
+    border: 1px solid #000;
+    box-sizing: border-box;
     height: 100px;
     cursor: pointer;
     background-position: center;
