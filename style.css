@@ -51,12 +51,12 @@ input {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    transition: height 0.3s ease-in-out;
+    
 }
 
 
 .controls-container:hover {
-    height: 150px; /* Adjust the height to your desired value */
+    font-size: 30px; /* Adjust the height to your desired value */
 }
 
 .button {
@@ -72,12 +72,10 @@ input {
     font-size: 20px;
     cursor: pointer;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    
 }
 
-.button:hover {
-    background-color: #0056b3;
-}
+
 
 #game-board {
     display: grid;
