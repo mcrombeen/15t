@@ -9,31 +9,41 @@ body {
     background-color: #f8f9fa;
 }
 
-.wrapper {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .title-container {
-    margin-bottom: 30px;
-}
-
-h1 {
-    font-size: 36px;
-}
-
-.controls-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: 20px;
 }
 
 .game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.game-title {
+    font-size: 36px;
+    margin: 0;
+}
+
+.yellow-tile {
+    background-color: transparent;
+}
+
+input {
+    margin-bottom: 30px;
+}
+
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 420px; /* Adjust this height to match the height of your game board */
 }
 
 .button {
