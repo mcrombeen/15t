@@ -47,11 +47,16 @@ input {
 }
 
 .controls-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    grid-gap: 10px;
-    width: 420px; /* Adjust this height to match the height of your game board */
+    gap: 10px;
+    transition: height 0.3s ease-in-out;
+}
+
+
+.controls-container:hover {
+    height: 150px; /* Adjust the height to your desired value */
 }
 
 .button {
