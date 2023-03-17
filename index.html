@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>15 +solva</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="title-container">
-        <h1>15 Tile Game</h1>
-    </div>
-    <div class="container">
+    <div class="wrapper">
+        <div class="title-container">
+            <h1>15 Tile Game</h1>
+        </div>
+        <div class="controls-container">
+            <button class="button">New game</button>
+            <button class="button" id="btn-image-picker">Choose an image</button>
+            <button class="button">Options</button>
+            <button class="button">Scoreboard</button>
+        </div>
         <div class="game-container">
             <div id="game-board"></div>
-        </div>
-        <div class="buttons-container">
-            <button class="button">Options</button>
-            <button class="button" id="btn-image-picker">Choose an image</button>
-            <button class="button">Scoreboard</button>
-            <button class="button">New Game</button>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
-
 </html>
