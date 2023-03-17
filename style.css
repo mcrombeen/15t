@@ -33,7 +33,7 @@ body {
 
 .game-title {
     font-size: 36px;
-    position: fixed;
+    position: relative;
   left: calc(50% - 20px); /* Moves the title 20px to the left of the center */
   
     font-family: 'Dancing Script', cursive;
