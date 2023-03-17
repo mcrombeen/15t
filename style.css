@@ -51,6 +51,7 @@ input {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    height: 24px;
     
 }
 
@@ -58,6 +59,7 @@ input {
 .controls-container:hover .button {
   font-size: 24px;
   transition: font-size 0.3s ease-in-out;
+  
 }
 
 
