@@ -57,6 +57,8 @@ input {
 .button {
     display: inline-block;
     background-color: #007bff;
+    font-family: 'Dancing Script', cursive;
+
     border: none;
     color: white;
     text-align: center;
