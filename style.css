@@ -55,9 +55,11 @@ input {
 }
 
 
-.controls-container:hover {
-    font-size: 30px; /* Adjust the height to your desired value */
+.controls-container:hover .button {
+  font-size: 24px;
+  transition: font-size 0.3s ease-in-out;
 }
+
 
 .button {
     display: inline-block;
