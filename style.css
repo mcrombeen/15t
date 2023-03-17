@@ -69,6 +69,9 @@ input {
   
 }
 
+.button:hover .button {
+  font-size: 30px;
+}
 
 .button {
     display: inline-block;
