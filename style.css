@@ -59,14 +59,14 @@ body {
     box-shadow: 0 0 20px #ff262699; /* Add shadow around the border */
     box-border-radius: 20px;
     border-image-slice: 1;
-    border-radius: 10px; /* Add rounded co
+    border-radius: 10px; 
     
     animation: pulsate-border 2s;
     animation-delay: 10s;
     animation-iteration-count: infinite;
     background-position: center;
-    z-index: -1; /* Keep the border behind the game container */
-       animation: pulsate-border 1.5s ease 10s infinite;
+    z-index: -1; 
+       
 
 }
 
