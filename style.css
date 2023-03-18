@@ -56,8 +56,8 @@ body {
     bottom: -12px;
     border: 10px solid #000; /* Adjust the border style as needed */
     border: 10px solid gold; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow around the border */
-
+    box-shadow: 0 0 20px #ff262699; /* Add shadow around the border */
+    box-border-radius: 20px;
     border-image-slice: 1;
     border-radius: 10px; /* Add rounded co
     
