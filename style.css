@@ -13,12 +13,14 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     width: 100%;
     max-width: 600px;
     box-sizing: border-box;
     padding: 20px;
+    height: 100%;
 }
 
 .title-container {
@@ -26,6 +28,7 @@ body {
     padding: 10px;
     background-color: #f8f9fa;
     z-index: 1;
+    margin-top: 20px;
 }
 
 .game-container {
@@ -41,12 +44,48 @@ body {
     font-family: 'Dancing Script', cursive;
 }
 
+.yellow-tile {
+    background-color: transparent;
+}
+
+input {
+    margin-bottom: 30px;
+}
+
 .controls-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.controls-container:hover .button {
+    font-size: 24px;
+    transition: font-size 0.3s cubic-bezier(0, 0.41, 0.9, 1.09);
+    text-decoration-color: red;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+}
+
+.button:hover {
+    font-size: 30px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #f8f9fa;
+    font-family: 'Dancing Script', cursive;
+    color: black;
+    border: none;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 2px 0;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
 #game-board {
@@ -55,6 +94,16 @@ body {
     grid-template-rows: repeat(4, 100px);
     gap: 3px;
     border-radius: 4px;
+}
+
+.tile {
+    width: 100px;
+    border-radius: 4px;
+    height: 100px;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 /* Responsive styles */
