@@ -55,9 +55,8 @@ body {
     right: -5px;
     bottom: -5px;
     border: 2px solid #000; /* Adjust the border style as needed */
-    background-image: url("https://raw.githubusercontent.com/mcrombeen/15t/main/bg2croppedforborder.jpg"); /* Replace with your image URL */
-    background-size: cover;
-    background-repeat: no-repeat;
+    border: 2px solid gold; 
+    
     background-position: center;
     z-index: -1; /* Keep the border behind the game container */
 }
