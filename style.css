@@ -1,9 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   position: relative; /* or absolute, fixed */    margin: 0;
+    position: relative;
+    margin: 0;
     padding: 0;
     background-color: #f8f9fa;
 }
@@ -12,34 +10,32 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative; /* or absolute, fixed */    margin: 0;
-     
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .title-container {
-  position: center;
-  left: 240px;
-  top: 10px;
-  padding: 10px;
-  background-color: #f8f9fa;
-  z-index: 1;
+    position: center;
+    left: 240px;
+    top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    z-index: 1;
 }
 
 .game-container {
     display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    margin: auto;
 }
 
 .game-title {
     font-size: 36px;
     position: center;
-  
-  
     font-family: 'Dancing Script', cursive;
-
 }
 
 .yellow-tile {
@@ -57,22 +53,19 @@ input {
     gap: 10px;
     height: 24px;
     margin-top: 90px;
-    
 }
 
-
 .controls-container:hover .button {
-  font-size: 24px;
-  transition: font-size 0.3s cubic-bezier(0, 0.41, 0.9, 1.09);
-  text-decoration-color: red;
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
-  
+    font-size: 24px;
+    transition: font-size 0.3s cubic-bezier(0, 0.41, 0.9, 1.09);
+    text-decoration-color: red;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
 }
 
 .button:hover .button {
-  font-size: 30px;
+    font-size: 30px;
 }
 
 .button {
@@ -88,10 +81,7 @@ input {
     font-size: 20px;
     cursor: pointer;
     border-radius: 4px;
-    
 }
-
-
 
 #game-board {
     display: grid;
@@ -104,7 +94,6 @@ input {
 .tile {
     width: 100px;
     border-radius: 4px;
-    
     height: 100px;
     cursor: pointer;
     background-position: center;
