@@ -45,7 +45,7 @@ body {
 
 .game-title {
     font-size: 36px;
-    background: transparent;
+    background-color: transparent;
     font-family: 'Dancing Script', cursive;
 }
 .yellow-tile {
@@ -81,7 +81,7 @@ input {
     display: inline-block;
     background-color: #f8f9fa;
     font-family: 'Dancing Script', cursive;
-    color: black;
+    color: #1e0846;
     border: none;
     text-align: center;
     padding: 10px 20px;
