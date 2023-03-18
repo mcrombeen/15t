@@ -61,8 +61,9 @@ body {
     border-image-slice: 1;
     border-radius: 10px; /* Add rounded co
     
-    animation: pulsate-border 1s 1;
+    animation: pulsate-border 2s;
     animation-delay: 10s;
+    animation-iteration-count: infinite;
     background-position: center;
     z-index: -1; /* Keep the border behind the game container */
        animation: pulsate-border 1.5s ease 10s infinite;
