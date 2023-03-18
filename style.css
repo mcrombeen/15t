@@ -63,6 +63,8 @@ body {
     animation: pulsate-border 1.5s infinite;
     background-position: center;
     z-index: -1; /* Keep the border behind the game container */
+    animation-timing-function: ease;
+    animation-delay: 10s;
     animation: pulsate-border 1.5s infinite;
 }
 
