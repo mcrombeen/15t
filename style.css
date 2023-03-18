@@ -25,10 +25,10 @@ body {
 
 .title-container {
     text-align: center;
-    padding: 10px;
+    
     background-color: #f8f9fa;
     z-index: 1;
-    margin-top: 20px;
+    
 }
 
 .game-container {
