@@ -63,7 +63,7 @@ body {
     
     animation: pulsate-border 2s;
     animation-delay: 10s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 2;
     background-position: center;
     z-index: -1; 
        
