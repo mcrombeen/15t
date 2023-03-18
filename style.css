@@ -50,13 +50,14 @@ body {
 #game-board::before {
     content: "";
     position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
     border: 10px solid #000; /* Adjust the border style as needed */
     border: 10px solid gold; 
-    border-image-source: linear-gradient(to bottom, rgba(255, 215, 0, 1), rgba(255, 215, 0, 0));
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow around the border */
+
     border-image-slice: 1;
     border-radius: 10px; /* Add rounded co
     
