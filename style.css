@@ -61,11 +61,11 @@ body {
     border-image-slice: 1;
     border-radius: 10px; 
     
-     animation-name: pulsate;
-  animation-duration: 3s;
+     animation-name: pulsate-border;
+  animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  animation-delay: 0s, 10s;
+  animation-delay: 3s, ;
     background-position: center;
     z-index: -1; 
        
@@ -73,15 +73,15 @@ body {
 }
 
 @keyframes pulsate-border {
-    8% {
+    0% {
         transform: scale(1);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
-    8% {
+    30% {
         transform: scale(1.03);
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
-    84% {
+    100% {
         transform: scale(1);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
