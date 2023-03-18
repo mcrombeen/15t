@@ -8,7 +8,7 @@ body {
     padding: 0;
     background-color: #f8f9fa;
     height: 100vh;
-    background-image: url("path/to/your/image.jpg");
+    background-image: 'https://raw.githubusercontent.com/mcrombeen/15t/main/bg.jpg';
     background-size: cover; /* Adjust this as needed (cover, contain, etc.) */
     background-repeat: no-repeat;
     background-position: center;
