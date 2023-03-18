@@ -47,7 +47,7 @@ body {
     
 }
 
-.game-board::before {
+#game-board::before {
     content: "";
     position: absolute;
     top: -5px;
