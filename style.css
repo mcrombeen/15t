@@ -45,6 +45,7 @@ body {
 
 .game-title {
     font-size: 36px;
+    background: transparent;
     font-family: 'Dancing Script', cursive;
 }
 .yellow-tile {
@@ -89,6 +90,7 @@ input {
     font-size: 20px;
     cursor: pointer;
     border-radius: 4px;
+    background: transparent;
 }
 
 #game-board {
