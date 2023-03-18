@@ -60,11 +60,25 @@ body {
     box-border-radius: 20px;
     border-image-slice: 1;
     border-radius: 10px; /* Add rounded co
-    
+    animation: pulsate-border 1.5s infinite;
     background-position: center;
     z-index: -1; /* Keep the border behind the game container */
 }
 
+@keyframes pulsate-border {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+}
 .game-title {
     font-size: 36px;
     background-color: transparent;
