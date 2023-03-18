@@ -63,6 +63,7 @@ body {
     animation: pulsate-border 1.5s infinite;
     background-position: center;
     z-index: -1; /* Keep the border behind the game container */
+    animation: pulsate-border 1.5s infinite;
 }
 
 @keyframes pulsate-border {
@@ -138,7 +139,7 @@ input {
     gap: 3px;
     border-radius: 4px;
     position: relative; /* Add this */
-    animation: pulsate-border 1.5s infinite;
+    
 }
 
 .tile {
