@@ -70,6 +70,8 @@ input {
     transition: font-size 0.3s cubic-bezier(0, 0.41, 0.9, 1.09);
     text-decoration-color: red;
     text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-underline-offset: 5px;
     text-decoration-thickness: 1px;
     text-underline-offset: 5px;
 }
