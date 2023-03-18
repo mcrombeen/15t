@@ -28,8 +28,9 @@ body {
 }
 
 .title-container {
+    
     text-align: center;
-    background-color: #f8f9fa;
+    background-color: transparent;
     z-index: 1;
 }
 
