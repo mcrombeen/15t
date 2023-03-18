@@ -61,9 +61,10 @@ body {
     border-image-slice: 1;
     border-radius: 10px; 
     
-    animation: pulsate-border 2s;
+    animation-name: pulsate-border;
+    animation-duration: 4s;
     animation-delay: 10s;
-    animation-iteration-count: 2;
+    animation-iteration-count: 5;
     background-position: center;
     z-index: -1; 
        
