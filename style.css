@@ -27,10 +27,10 @@ body {
 
 .game-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .game-title {
