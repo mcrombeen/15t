@@ -44,6 +44,22 @@ body {
     width: 100%;
     margin: 0 auto;
     padding-top:150px; 
+    position: relative; /* Add this */
+}
+
+.game-container::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid #000; /* Adjust the border style as needed */
+    background-image: url("path/to/your/image.jpg"); /* Replace with your image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1; /* Keep the border behind the game container */
 }
 
 .game-title {
