@@ -60,7 +60,7 @@ body {
     box-border-radius: 20px;
     border-image-slice: 1;
     border-radius: 10px; /* Add rounded co
-    animation: pulsate-border ;
+    
     animation: pulsate-border 1s 1;
     animation-delay: 10s;
     background-position: center;
