@@ -47,7 +47,7 @@ body {
     
 }
 
-.game-board::before {
+#game-board::before {
     content: "";
     position: absolute;
     top: -12px;
@@ -138,6 +138,7 @@ input {
     gap: 3px;
     border-radius: 4px;
     position: relative; /* Add this */
+    animation: pulsate-border 1.5s infinite;
 }
 
 .tile {
