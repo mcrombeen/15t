@@ -62,8 +62,8 @@ body {
     border-radius: 10px; 
     
     animation-name: pulsate-border;
-    animation-duration: 4s;
-    animation-delay: 10s;
+    animation-duration: 13s;
+    animation-delay: 2s;
     animation-iteration-count: 5;
     background-position: center;
     z-index: -1; 
@@ -72,15 +72,15 @@ body {
 }
 
 @keyframes pulsate-border {
-    0% {
+    8% {
         transform: scale(1);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
-    50% {
+    8% {
         transform: scale(1.03);
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
-    100% {
+    84% {
         transform: scale(1);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
