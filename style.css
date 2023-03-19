@@ -61,7 +61,7 @@ body {
     border-image-slice: 1;
     border-radius: 10px; 
     
-     animation-name: pulsate-border;
+    // animation-name: pulsate-border;
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
