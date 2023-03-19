@@ -54,41 +54,17 @@ body {
     left: -12px;
     right: -12px;
     bottom: -12px;
-    border: 10px solid #000; /* Adjust the border style as needed */
-    border: 10px solid gold; 
-    box-shadow: 0 0 50px #ff262699; /* Add shadow around the border */
-    box-border-radius: 20px;
-    border-image-slice: 1;
+   
     border-radius: 10px; 
     
-     animation-name: pulsate-border;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-delay: 3s ;
+     
     background-position: center;
     z-index: -1; 
        
 
 }
 
-@keyframes pulsate-border {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 10px 50px #ff262699;
-    }
-    80% {
-        transform: scale(1.3);
-        box-shadow: 0 0 20px  #ff262699;
-    }
-    
-    100%  
-        {
-        transform: scale(1);
-        box-shadow: 0 0 20px #ff262699;
-   
-    }
-}
+
 .game-title {
     font-size: 66px;
     letter-spacing: 5px; /* Adjust this value as needed */
