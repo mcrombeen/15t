@@ -90,7 +90,7 @@ body {
     font-size: 56px;
     background-color: transparent;
     font-family: 'Dancing Script', cursive;
-    color: #1e0846;
+    color: #3e2370;
 }
 .yellow-tile {
     background-color: transparent;
@@ -127,7 +127,7 @@ input {
     display: inline-block;
     background-color: #f8f9fa;
     font-family: 'Dancing Script', cursive;
-    color: #1e0846;
+    color: #3e2370;
     border: none;
     text-align: center;
     padding: 10px 20px;
