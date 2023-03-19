@@ -98,25 +98,26 @@ body {
 }
 
 @-webkit-keyframes scale-down-ver-center {
-  0% {
+  0%, 100% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
   }
-  100% {
+  50% {
     -webkit-transform: scaleY(0.3);
             transform: scaleY(0.3);
   }
 }
 @keyframes scale-down-ver-center {
-  0% {
+  0%, 100% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
   }
-  100% {
+  50% {
     -webkit-transform: scaleY(0.3);
             transform: scaleY(0.3);
   }
 }
+
 
 .yellow-tile {
     background-color: transparent;
