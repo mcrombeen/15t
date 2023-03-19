@@ -75,11 +75,11 @@ body {
 @keyframes pulsate-border {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 10px ;
+        box-shadow: 0 0 10px 50px ;
     }
     10% {
         transform: scale(1.13);
-        box-shadow: 0 0 20px ;
+        box-shadow: 0 0 20px  50px;
     }
     20% {
         transform: scale(1);
