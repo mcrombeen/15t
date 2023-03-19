@@ -54,7 +54,7 @@ body {
     left: -12px;
     right: -12px;
     bottom: -12px;
-    border: 10px solid ; /* Adjust the border style as needed */
+    border: 10px solid #000 /* Adjust the border style as needed */
     border: 10px solid gold; 
     box-shadow: 0 0 50px #ff262699; /* Add shadow around the border */
     box-border-radius: 20px;
@@ -75,20 +75,20 @@ body {
 @keyframes pulsate-border {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 10px 50px ;
+        box-shadow: 0 0 10px 50px #ff262699;
     }
     10% {
         transform: scale(1.13);
-        box-shadow: 0 0 20px  50px;
+        box-shadow: 0 0 20px  50px #ff262699;
     }
     20% {
         transform: scale(1);
-        box-shadow: 0 0 10px ;
+        box-shadow: 0 0 10px #ff262699;
          }
     100%  
         {
         transform: scale(1.13);
-        box-shadow: 0 0 20px ;
+        box-shadow: 0 0 20px #ff262699;
    
     }
 }
