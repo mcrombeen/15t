@@ -37,3 +37,7 @@ Different difficulty levels: Add different difficulty levels by varying the size
 Visual and sound effects: Enhance the game experience by adding visual and sound effects, such as animations for tile movements or sounds when tiles are clicked or swapped.
 
 Leaderboard or personal bests: Create a leaderboard or personal bests system to track high scores, fastest times, or the least number of moves taken to solve the puzzle.
+
+
+Styling for gameboard in 'no hint' state : tiles with shadow on top of a transparent background (board bg) with a solid thin border
+Styling for gameboard in 'hint' state : tiles no shadow on top of bg with original image and a solid thin border
