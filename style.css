@@ -43,7 +43,7 @@ body {
     height: 100%;
     width: 100%;
     margin: 0 auto;
-    padding-top:150px; 
+    padding-top:100px; 
     
 }
 
@@ -104,11 +104,11 @@ input {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .controls-container:hover .button {
-    font-size: 36px;
+    font-size: 50px;
     transition: font-size 0.3s cubic-bezier(0, 0.41, 0.9, 1.09);
     text-decoration-color: red;
     text-decoration-line: underline;
