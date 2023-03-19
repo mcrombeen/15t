@@ -79,7 +79,7 @@ body {
     }
     10% {
         transform: scale(1.13);
-        box-shadow: 0 0 20px  50px #ff262699;
+        box-shadow: 0 0 20px  #ff262699;
     }
     20% {
         transform: scale(1);
