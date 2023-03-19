@@ -41,3 +41,5 @@ Leaderboard or personal bests: Create a leaderboard or personal bests system to 
 
 Styling for gameboard in 'no hint' state : tiles with shadow on top of a transparent background (board bg) with a solid thin border
 Styling for gameboard in 'hint' state : tiles no shadow on top of bg with original image and a solid thin border
+
+For testing : a darker or b/w background with color animation to pull focus on foreground
