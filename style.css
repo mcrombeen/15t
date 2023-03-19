@@ -93,7 +93,7 @@ body {
     color: #3e2370;
     animation-name: scale-down-ver-center;
     animation-duration: 5s;
-    animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
 
