@@ -54,14 +54,14 @@ body {
     left: -12px;
     right: -12px;
     bottom: -12px;
-    border: 10px solid #000 /* Adjust the border style as needed */
+    border: 10px solid #000; /* Adjust the border style as needed */
     border: 10px solid gold; 
     box-shadow: 0 0 50px #ff262699; /* Add shadow around the border */
     box-border-radius: 20px;
     border-image-slice: 1;
     border-radius: 10px; 
     
-    // animation-name: pulsate-border;
+     animation-name: pulsate-border;
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
