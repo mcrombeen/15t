@@ -94,7 +94,7 @@ body {
     animation-name: scale-down-ver-center;
     animation-duration: 5s;
     animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-iteration-count: 1;
+    animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes scale-down-ver-center {
