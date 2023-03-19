@@ -75,15 +75,15 @@ body {
 @keyframes pulsate-border {
     80% {
         transform: scale(1);
-        box-shadow: 0 0 10px 50px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 10px  #ff262699;
     }
     10% {
         transform: scale(1.03);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 20px 30px #ff262699;
     }
     10% {
         transform: scale(1);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 10px #ff262699;
     }
 }
 .game-title {
