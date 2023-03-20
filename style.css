@@ -51,6 +51,17 @@ body {
     background-color: rgba(206,186,112,0.23) #FFFFFF;
 }
 
+.game-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    object-fit: cover; /* This will ensure the image maintains aspect ratio while resizing */
+}
+
+
 #game-board::before {
     content: "";
     position: absolute;
