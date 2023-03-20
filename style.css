@@ -46,9 +46,8 @@ body {
     width: 800px;
     margin: 0 auto;
     padding-top:40px; 
-    border: 10px solid #ccc;
+    border: 10px solid linear-gradient(to bottom, #800040, rgba(77,0,38,0.5), rgba(77,0,13,0.5), #FF5500, #802A00, rgba(77,25,0,0.5), #FFD500, #806A00, rgba(77,66,0,0.5), #D4FF00, #6A8000, rgba(64,77,0,0.5), #80FF00, #408000, rgba(38,77,0,0.5), rgba(206,89,55,0);
     border-radius: 10px; 
-    background: linear-gradient(to bottom, #800040, rgba(77,0,38,0.5), rgba(77,0,13,0.5), #FF5500, #802A00, rgba(77,25,0,0.5), #FFD500, #806A00, rgba(77,66,0,0.5), #D4FF00, #6A8000, rgba(64,77,0,0.5), #80FF00, #408000, rgba(38,77,0,0.5), rgba(206,89,55,0);
 
 
     
