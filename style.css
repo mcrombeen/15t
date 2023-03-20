@@ -51,32 +51,6 @@ body {
     background-color: rgba(206,186,112,0.23) #FFFFFF;
 }
 
-#game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 125px);
-    grid-template-rows: repeat(4, 125px);
-    gap: 3px;
-    border-radius: 4px;
-    position: relative; /* Add this */
-    
-}
-
-.image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden; /* To prevent the image from overflowing the game container */
-}
-
-#game-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* To maintain the aspect ratio of the image while resizing */
-}
-
 #game-board::before {
     content: "";
     position: absolute;
@@ -182,7 +156,15 @@ input {
     background: transparent;
 }
 
-
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 125px);
+    grid-template-rows: repeat(4, 125px);
+    gap: 3px;
+    border-radius: 4px;
+    position: relative; /* Add this */
+    
+}
 
 .tile {
     width: 125px;
