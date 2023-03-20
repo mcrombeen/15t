@@ -47,6 +47,7 @@ body {
     margin: 0 auto;
     padding-top:40px; 
     border: 10px solid #ccc;
+    border-radius: 10px; 
 
     
 }
