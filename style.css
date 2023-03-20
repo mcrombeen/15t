@@ -154,8 +154,8 @@ input {
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(4, 150px);
-    grid-template-rows: repeat(4, 150px);
+    grid-template-columns: repeat(4, 125px);
+    grid-template-rows: repeat(4, 125px);
     gap: 3px;
     border-radius: 4px;
     position: relative; /* Add this */
@@ -163,9 +163,9 @@ input {
 }
 
 .tile {
-    width: 150px;
+    width: 125px;
     border-radius: 4px;
-    height: 150px;
+    height: 125px;
     cursor: pointer;
     background-position: center;
     background-repeat: no-repeat;
