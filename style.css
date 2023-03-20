@@ -45,7 +45,7 @@ body {
     height: 100%;
     width: 100%;
     margin: 0 auto;
-    padding-top:100px; 
+    padding-top:40px; 
     
 }
 
@@ -118,7 +118,7 @@ input {
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
 
 }
 
