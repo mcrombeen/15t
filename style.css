@@ -48,9 +48,7 @@ body {
     padding-top:40px; 
     border: 10px solid rgba(229,43,80,0.7);
     border-radius: 30px; 
-
-
-    
+    background-color: rgba(206,186,112,0.23) #FFFFFF;
 }
 
 #game-board::before {
