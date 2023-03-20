@@ -46,8 +46,8 @@ body {
     width: 800px;
     margin: 0 auto;
     padding-top:40px; 
-    border: 10px solid linear-gradient(to right, #CE5937 0%, #C59237 100%);
-    border-radius: 10px; 
+    border: 10px solid rgba(229,43,80,0.7);
+    border-radius: 30px; 
 
 
     
