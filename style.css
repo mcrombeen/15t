@@ -69,8 +69,8 @@ body {
 
 .game-title {
     font-size: 66px;
-    letter-spacing: 15px; /* Adjust this value as needed */
-    word-spacing: 15px;
+    letter-spacing: 7px; /* Adjust this value as needed */
+    word-spacing: 10px;
     text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
     background-color: transparent;
     font-family: 'Dancing Script', cursive;
