@@ -46,7 +46,7 @@ body {
     width: 800px;
     margin: 0 auto;
     padding-top:40px; 
-    border: 10px solid rgba(229,43,80,0.7);
+    border: 20px solid black;
     border-radius: 30px; 
     background-color: rgba(255,255,255,0.8);
 }
