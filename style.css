@@ -47,6 +47,9 @@ body {
     margin: 0 auto;
     padding-top:40px; 
     border: 20px solid black;
+    box-shadow: rgba(255, 61, 0, .7),
+                rgba(255, 61, 0, .7),
+                rgba(255, 61, 0, .7);
     border-radius: 30px; 
     background-color: rgba(255,255,255,0.8);
 }
