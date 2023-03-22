@@ -47,11 +47,25 @@ body {
     margin: 0 auto;
     padding-top:40px; 
     border: 20px solid black;
-    border-shadow: 0px 7px 18px 10px rgba(255, 61, 0, .7),
-                rgba(255, 61, 0, .7),
-                rgba(255, 61, 0, .7);
     border-radius: 30px; 
     background-color: rgba(255,255,255,0.8);
+    animation: neonAnim 2s alternate-reverse infinite;
+       
+    }
+    @keyframes neonAnim {
+    from {
+        text-shadow:
+          0 0 10px rgba(255, 61, 0, .7),
+          0 0 40px rgba(255, 61, 0, .7),
+          0 0 100px rgba(255, 61, 0, .7);
+      }
+      to {
+        text-shadow:
+          0 0 5px rgba(255, 61, 0, .7),
+          0 0 20px rgba(255, 61, 0, .7),
+          0 0 60px rgba(255, 61, 0, .7);
+      }
+}
 }
 
 #game-board::before {
